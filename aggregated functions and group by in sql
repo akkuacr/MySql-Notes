@@ -1,0 +1,11 @@
+-- aggregated functions in sql
+-- select COUNT(*) from address where district='Albarta';
+-- select distinct district  from address;
+--aur agr sare unique distict k address lane ho toh
+-- ab ata h concept h 'group by' ka 
+select COUNT(*) ,district from address group by district;
+--'group by' ek group k liye ans leke ata h
+--'aur har group k liye ek hi row lata h aur ye tvi sirf aggregated queries k liye hi jyada kaam krta h'
+--aur aggregate m jese condition hoti ki woh district lao jinme count 5 se jyda ho uske liye
+-- dekh row m condition lgane k liye where lgaenge aur agr group  m condition lgani ho toh having use krenge
+select district ,count(*) as count1 from address group by district having count1>5;
