@@ -1,0 +1,58 @@
+-- 'As' clause is used For given column name a new name
+-- select first_name as first,last_name as last from actors;
+-- ab question tha ki 'station' naam ki table di hui h usme se sbse largest and smallest city print krni thi uske liye query
+***************************************question***********************************************///
+
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+The STATION table is described as follows:
+
+Station.jpg
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Sample Input
+
+For example, CITY has four entries: DEF, ABC, PQRS and WXY.
+
+Sample Output
+
+ABC 3
+PQRS 4
+Explanation
+
+When ordered alphabetically, the CITY names are listed as ABC, DEF, PQRS, and WXY, with lengths  and . The longest name is PQRS, but there are  options for shortest named city. Choose ABC, because it comes first alphabetically.
+
+Note
+You can write two separate queries to get the desired output. It need not be a single query.
+//////////////////////////////////**********************************Answer is********************************************
+Ans-
+SELECT CITY,LENGTH(CITY) AS Len FROM STATION order by Len,CITY limit 1;
+SELECT CITY,LENGTH(CITY) AS Len FROM STATION order by Len DESC,CITY limit 1;
+
+-- here we learn two important concept one was 'AS' aur length function
+***************************************************************************************************************************************
+
+Question 2
+-- select bss print krne k liye hota h so 
+
+--- ques ye h jo bhut concept sikhaega
+--so ques is basically ek table di hui triangle name ki jisme a,b,c columns h jo side of triangle bta re h then print if each row is isoceles,equilateral,or scalene or none;
+
+select 
+    CASE
+       WHEN  A + B > C AND B + C > A AND A + C > B THEN 
+           CASE
+                WHEN A = B AND B = C THEN "Equilateral"
+                WHEN A = B OR B = C OR A = C THEN "Isosceles"
+                ELSE "Scalene"
+           END
+       ELSE "Not A Triangle"
+    END
+from TRIANGLES;
+
+-- Ye Basically humne case statement kese use krenge sql m ye sikha so select basically print krane k liye hota h usme if else yah case aap khud jod skte ho
+ 
+
+
+
+
